@@ -7,16 +7,16 @@ set(SRCS
         src/use_case/simpleFunction.cpp
         src/use_case/simpleFunction2.cpp
         src/utils/FileReader.cpp
-        )
+        src/models/ElementXml.cpp)
 set(HEADERS
         src/use_case/simpleFunction.h
         src/use_case/simpleFunction2.h
         src/utils/FileReader.h
-        )
+        src/models/ElementXml.h)
 set(TESTSRCS
         test/use_case/simpleFunctionTest.cpp
         test/use_case/simpleFunction2Test.cpp
-        )
+        test/models/ElementXmlTest.cpp)
 set(TESTHEADERS
         test/use_case/MockRng.h
         )

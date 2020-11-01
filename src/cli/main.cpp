@@ -2,7 +2,7 @@
 #include "../utils/FileReader.h"
 
 int main() {
-    FileReader fp("Makefile");
+    FileReader fp("../ressources/xml/file.xml");
     std::string result= fp.readFile();
 
     std::cout << result << std::endl;
