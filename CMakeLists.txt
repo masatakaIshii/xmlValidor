@@ -7,11 +7,17 @@ set(SRCS
         src/use_case/simpleFunction.cpp
         src/use_case/simpleFunction2.cpp
         src/utils/FileReader.cpp
+        src/model/dtd/ChildElement.cpp
+        src/model/dtd/Element.cpp
+        src/model/dtd/DTD.cpp
         )
 set(HEADERS
         src/use_case/simpleFunction.h
         src/use_case/simpleFunction2.h
         src/utils/FileReader.h
+        src/model/dtd/ChildElement.h
+        src/model/dtd/Element.h
+        src/model/dtd/DTD.h
         )
 set(TESTSRCS
         test/use_case/simpleFunctionTest.cpp
