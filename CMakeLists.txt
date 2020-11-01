@@ -6,10 +6,12 @@ set(CMAKE_CXX_STANDARD 14)
 set(SRCS
         src/use_case/simpleFunction.cpp
         src/use_case/simpleFunction2.cpp
+        src/utils/FileReader.cpp
         )
 set(HEADERS
         src/use_case/simpleFunction.h
         src/use_case/simpleFunction2.h
+        src/utils/FileReader.h
         )
 set(TESTSRCS
         test/use_case/simpleFunctionTest.cpp
@@ -19,7 +21,7 @@ set(TESTHEADERS
         test/use_case/MockRng.h
         )
 
-add_executable(xmlValidor src/main.cpp)
+add_executable(xmlValidor src/cli/main.cpp ${SRCS} ${HEADERS})
 add_executable(xmlValidatorTest test/main.cpp ${SRCS} ${HEADERS} ${TESTSRCS})
 
 find_package(PkgConfig REQUIRED)
