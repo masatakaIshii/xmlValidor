@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <list>
+#include <vector>
 
 class ElementXml {
 public:
@@ -14,10 +15,16 @@ public:
     ~ElementXml();
     bool isValid();
     void addChild(const ElementXml& element);
+    std::string getName();
+    std::string getContent();
+    std::vector<ElementXml> getChildren();
+    bool equals(const ElementXml& elementToCompare);
+
 private:
+    std::vector<ElementXml> children;
     std::string name;
-    std::list<ElementXml> childs;
     std::string content;
+
 };
 
 
