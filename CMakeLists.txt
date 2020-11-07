@@ -4,40 +4,40 @@ project(xmlValidor)
 set(CMAKE_CXX_STANDARD 14)
 
 set(SRCS
-        src/use_case/simpleFunction.cpp
-        src/use_case/simpleFunction2.cpp
+        src/use_cases/simpleFunction.cpp
+        src/use_cases/simpleFunction2.cpp
         src/utils/FileReader.cpp
-        src/model/ChildDtd.cpp
-        src/model/ElementDtd.cpp
-        src/model/DTD.cpp
-        src/infrastructure/factory/ElementDtdFactory.cpp
-        src/infrastructure/factory/ChildDtdFactory.cpp
-        src/use_case/Turtle.cpp
-        src/use_case/Painter.cpp
+        src/models/ChildDtd.cpp
+        src/models/ElementDtd.cpp
+        src/models/DTD.cpp
+        src/infrastructures/factories/ElementDtdFactory.cpp
+        src/infrastructures/factories/ChildDtdFactory.cpp
+        src/use_cases/Turtle.cpp
+        src/use_cases/Painter.cpp
         )
 set(HEADERS
-        src/use_case/simpleFunction.h
-        src/use_case/simpleFunction2.h
+        src/use_cases/simpleFunction.h
+        src/use_cases/simpleFunction2.h
         src/utils/FileReader.h
-        src/model/ChildDtd.h
-        src/model/ElementDtd.h
-        src/model/DTD.h
-        src/infrastructure/factory/ElementDtdFactory.h
-        src/infrastructure/factory/ChildDtdFactory.h
-        src/use_case/Turtle.h
-        src/use_case/Painter.h
+        src/models/ChildDtd.h
+        src/models/ElementDtd.h
+        src/models/DTD.h
+        src/infrastructures/factories/ElementDtdFactory.h
+        src/infrastructures/factories/ChildDtdFactory.h
+        src/use_cases/Turtle.h
+        src/use_cases/Painter.h
         )
 set(TESTSRCS
-        test/use_case/simpleFunctionTest.cpp
-        test/use_case/simpleFunction2Test.cpp
-        test/use_case/PainterTests.cpp
+        tests/use_cases/simpleFunctionTest.cpp
+        tests/use_cases/simpleFunction2Test.cpp
+        tests/use_cases/PainterTests.cpp
         )
 set(TESTHEADERS
-        test/use_case/Mock/MockTurtle.h
+        tests/use_cases/Mock/MockTurtle.h
         )
 
 add_executable(xmlValidor src/cli/main.cpp ${SRCS} ${HEADERS})
-add_executable(xmlValidatorTest test/main.cpp ${SRCS} ${HEADERS} ${TESTSRCS})
+add_executable(xmlValidatorTest tests/main.cpp ${SRCS} ${HEADERS} ${TESTSRCS})
 
 find_package(PkgConfig REQUIRED)
 

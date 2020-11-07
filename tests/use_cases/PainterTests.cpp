@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
-#include "../../src/use_case/Turtle.h"
-#include "../../src/use_case/Painter.h"
+#include "../../src/use_cases/Turtle.h"
+#include "../../src/use_cases/Painter.h"
 #include "Mock/MockTurtle.h"
 
 //
@@ -84,12 +84,10 @@ TEST_F(PainterTests, testThrowWhenForwardNegativeNumber) {
 }
 
 TEST_F(PainterTests, testGetXCalls) {
-    {
-        for (int i = 5; i > 0; i--) {
-            EXPECT_CALL(mockTurtle, GetX())
-                    .WillOnce(Return(10 * i))
-                    .RetiresOnSaturation();
-        }
+    for (int i = 5; i > 0; i--) {
+        EXPECT_CALL(mockTurtle, GetX())
+                .WillOnce(Return(10 * i))
+                .RetiresOnSaturation();
     }
     EXPECT_EQ(painter->testGetX(), 150);
 }
