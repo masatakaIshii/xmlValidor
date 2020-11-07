@@ -7,6 +7,7 @@ set(SRCS
         src/use_cases/simpleFunction.cpp
         src/use_cases/simpleFunction2.cpp
         src/utils/FileReader.cpp
+        src/models/ElementXml.cpp)
         src/models/ChildDtd.cpp
         src/models/ElementDtd.cpp
         src/models/DTD.cpp
@@ -15,10 +16,18 @@ set(SRCS
         src/use_cases/Turtle.cpp
         src/use_cases/Painter.cpp
         )
+
 set(HEADERS
         src/use_cases/simpleFunction.h
         src/use_cases/simpleFunction2.h
         src/utils/FileReader.h
+        src/models/ElementXml.h
+        )
+        
+set(TESTSRCS
+        test/use_case/simpleFunctionTest.cpp
+        test/use_case/simpleFunction2Test.cpp
+        test/models/ElementXmlTest.cpp)
         src/models/ChildDtd.h
         src/models/ElementDtd.h
         src/models/DTD.h
@@ -27,11 +36,13 @@ set(HEADERS
         src/use_cases/Turtle.h
         src/use_cases/Painter.h
         )
+        
 set(TESTSRCS
         tests/use_cases/simpleFunctionTest.cpp
         tests/use_cases/simpleFunction2Test.cpp
         tests/use_cases/PainterTests.cpp
         )
+
 set(TESTHEADERS
         tests/use_cases/Mock/MockTurtle.h
         )
