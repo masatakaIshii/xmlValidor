@@ -12,13 +12,20 @@
 class ElementXml {
 public:
     explicit ElementXml(std::string name, std::string content);
+
     ~ElementXml();
+
     bool isValid();
-    void addChild(const ElementXml& element);
+
+    void addChild(const ElementXml &element);
+
     std::string getName();
+
     std::string getContent();
+
     std::vector<ElementXml> getChildren();
-    bool equals(const ElementXml& elementToCompare);
+
+    bool equals(const ElementXml &elementToCompare);
 
 private:
     std::vector<ElementXml> children;

@@ -20,8 +20,8 @@ ElementXml::~ElementXml() {
  * @return
  */
 bool ElementXml::isValid() {
-    if( !this->name.empty() &&
-        !this->content.empty() ){
+    if (!this->name.empty() &&
+        !this->content.empty()) {
         return true;
     }
     return false;
@@ -30,7 +30,7 @@ bool ElementXml::isValid() {
 /**
  * Add a child
  */
-void ElementXml::addChild(const ElementXml& element) {
+void ElementXml::addChild(const ElementXml &element) {
     this->children.push_back(element);
 }
 
@@ -63,9 +63,9 @@ std::string ElementXml::getContent() {
  * @param elementToCompare
  * @return
  */
-bool ElementXml::equals(const ElementXml& elementToCompare) {
-    if((this->name == elementToCompare.name) &&
-       (this->content == elementToCompare.content)){
+bool ElementXml::equals(const ElementXml &elementToCompare) {
+    if ((this->name == elementToCompare.name) &&
+        (this->content == elementToCompare.content)) {
         return true;
     }
     return false;
