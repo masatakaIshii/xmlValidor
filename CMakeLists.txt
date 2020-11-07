@@ -7,7 +7,7 @@ set(SRCS
         src/use_cases/simpleFunction.cpp
         src/use_cases/simpleFunction2.cpp
         src/utils/FileReader.cpp
-        src/models/ElementXml.cpp)
+        src/models/ElementXml.cpp
         src/models/ChildDtd.cpp
         src/models/ElementDtd.cpp
         src/models/DTD.cpp
@@ -27,7 +27,7 @@ set(HEADERS
 set(TESTSRCS
         test/use_case/simpleFunctionTest.cpp
         test/use_case/simpleFunction2Test.cpp
-        test/models/ElementXmlTest.cpp)
+        test/models/ElementXmlTest.cpp
         src/models/ChildDtd.h
         src/models/ElementDtd.h
         src/models/DTD.h
@@ -41,6 +41,7 @@ set(TESTSRCS
         tests/use_cases/simpleFunctionTest.cpp
         tests/use_cases/simpleFunction2Test.cpp
         tests/use_cases/PainterTests.cpp
+        tests/models/ElementXmlTest.cpp
         )
 
 set(TESTHEADERS
