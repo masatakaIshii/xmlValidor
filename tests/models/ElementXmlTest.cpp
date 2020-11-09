@@ -45,16 +45,12 @@ namespace {
         EXPECT_EQ(false, elementXml1->equals(*elementXml2));
     }
 
-//    TEST(ElementXmlTest, getChildrenNominal) {
-//        auto elementXml = new ElementXml("NameTest", "ContentTest");
-//        auto elementXml2 = new ElementXml(" ", " ");
-//        elementXml->addChild(*elementXml2);
-//        std::vector<ElementXml> arr = elementXml->getChildren();
-//
-//
-//        EXPECT_EQ(arr, elementXml->getChildren());
-//    }
-
-
+    TEST(ElementXmlTest, addChildNominal){
+        auto elementXml = new ElementXml("NameTest", "ContentTest");
+        auto childElement = new ElementXml("Child", "ContentChild");
+        elementXml->addChild(*childElement);
+        EXPECT_EQ("Child", elementXml->getChildren()[0].getName());
+        EXPECT_EQ("ContentChild", elementXml->getChildren()[0].getContent());
+    }
 
 }

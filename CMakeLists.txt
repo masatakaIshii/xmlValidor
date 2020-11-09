@@ -15,7 +15,7 @@ set(SRCS
         src/infrastructures/factories/ChildDtdFactory.cpp
         src/use_cases/Turtle.cpp
         src/use_cases/Painter.cpp
-        )
+        src/infrastructures/services/XmlParserService.cpp src/infrastructures/services/XmlParserService.h)
 
 set(HEADERS
         src/use_cases/simpleFunction.h
