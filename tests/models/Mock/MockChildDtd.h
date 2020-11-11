@@ -6,11 +6,11 @@
 #define XMLVALIDOR_MOCKCHILDDTD_H
 
 #include <gmock/gmock.h>
-#include "../../../src/models/ChildDtd/IChildDtd.h"
+#include "../../../src/models/ChildDtd/ChildDtd.h"
 
 using namespace models;
 
-class MockChildDtd : public IChildDtd {
+class MockChildDtd : public ChildDtd {
 public:
     MOCK_METHOD(std::string, getName, (), (override));
     MOCK_METHOD(OccurrenceChildDtd, getOccurrence, (), (override));

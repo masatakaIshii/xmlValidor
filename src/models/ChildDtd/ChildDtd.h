@@ -1,26 +1,21 @@
 //
-// Created by masat on 01/11/2020.
+// Created by masat on 11/11/2020.
 //
 
 #ifndef XMLVALIDOR_CHILDDTD_H
 #define XMLVALIDOR_CHILDDTD_H
 
 #include <iostream>
-#include "IChildDtd.h"
+#include "OccurrenceChildDtd.h"
 
 namespace models {
-    class ChildDtd : public IChildDtd {
-    private:
-        std::string name;
-        OccurrenceChildDtd occurrence;
+    class ChildDtd {
     public:
-        explicit ChildDtd(std::string name, OccurrenceChildDtd occurrence = OccurrenceChildDtd::One);
+        virtual ~ChildDtd() = default;
 
-        ~ChildDtd();
+        virtual std::string getName() = 0;
 
-        std::string getName() override;
-
-        OccurrenceChildDtd getOccurrence() override;
+        virtual OccurrenceChildDtd getOccurrence() = 0;
     };
 }
 
