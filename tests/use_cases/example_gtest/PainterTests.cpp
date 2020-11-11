@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
-#include "../../src/use_cases/Turtle.h"
-#include "../../src/use_cases/Painter.h"
+#include "../../src/use_cases/example_gtest/Turtle.h"
+#include "../../src/use_cases/example_gtest/Painter.h"
 #include "Mock/MockTurtle.h"
 
 //

@@ -1,7 +1,7 @@
 //
 // Created by masat on 27/10/2020.
 //
-#include "../../src/use_cases/simpleFunction.h"
+#include "../../src/use_cases/example_gtest/simpleFunction.h"
 #include <gtest/gtest.h>
 
 namespace {
