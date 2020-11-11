@@ -8,7 +8,7 @@ set(SRCS
         src/use_cases/example_gtest/simpleFunction2.cpp
         src/utils/FileReader.cpp
         src/models/ElementXml.cpp
-        src/models/ChildDtd.cpp
+        src/models/ChildDtd/ChildDtd.cpp
         src/models/ElementDtd.cpp
         src/models/DTD.cpp
         src/infrastructures/factories/ElementDtdFactory.cpp
@@ -22,15 +22,17 @@ set(HEADERS
         src/use_cases/example_gtest/simpleFunction2.h
         src/utils/FileReader.h
         src/models/ElementXml.h
-        src/models/ChildDtd.h
+        src/models/ChildDtd/ChildDtd.h
         src/models/ElementDtd.h
         src/models/DTD.h
         src/infrastructures/factories/ElementDtdFactory.h
         src/infrastructures/factories/ChildDtdFactory.h
         src/use_cases/example_gtest/Turtle.h
         src/use_cases/example_gtest/Painter.h
+        src/models/ChildDtd/OccurrenceChildDtd.h
+        src/models/ChildDtd/IChildDtd.h
         )
-        
+
 set(TESTSRCS
         tests/use_cases/example_gtest/simpleFunctionTest.cpp
         tests/use_cases/example_gtest/simpleFunction2Test.cpp
@@ -38,10 +40,12 @@ set(TESTSRCS
         tests/models/ElementXmlTest.cpp
         tests/integration/infrastructures/ElementDtdFactoryTest.cpp
         tests/models/ChildDtdTest.cpp
+        tests/models/ElementDtdTest.cpp
         )
 
 set(TESTHEADERS
         tests/use_cases/example_gtest/Mock/MockTurtle.h
+        tests/models/Mock/MockChildDtd.h
         )
 
 add_executable(xmlValidor src/cli/main.cpp ${SRCS} ${HEADERS})

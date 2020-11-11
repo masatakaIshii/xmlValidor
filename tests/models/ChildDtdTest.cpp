@@ -3,7 +3,7 @@
 //
 
 #include <gtest/gtest.h>
-#include "../../src/models/ChildDtd.h"
+#include "../../src/models/ChildDtd/ChildDtd.h"
 
 using namespace models;
 
@@ -20,22 +20,22 @@ namespace {
 
     TEST_F(ChildDtdTest, shouldOcurrenceOnByDefault) {
         ChildDtd childDtd("name");
-        EXPECT_EQ(childDtd.getOccurrence(), Occurrence::One);
+        EXPECT_EQ(childDtd.getOccurrence(), OccurrenceChildDtd::One);
     }
 
     TEST_F(ChildDtdTest, shouldHaveMinOneOccurrence) {
-        ChildDtd childDtd("childTest", Occurrence::MinOne);
-        EXPECT_EQ(childDtd.getOccurrence(), Occurrence::MinOne);
+        ChildDtd childDtd("childTest", OccurrenceChildDtd::MinOne);
+        EXPECT_EQ(childDtd.getOccurrence(), OccurrenceChildDtd::MinOne);
     }
 
     TEST_F(ChildDtdTest, shouldHaveZeroOrMoreOccurrence) {
-        ChildDtd childDtd("childTest", Occurrence::ZeroOrMore);
-        EXPECT_EQ(childDtd.getOccurrence(), Occurrence::ZeroOrMore);
+        ChildDtd childDtd("childTest", OccurrenceChildDtd::ZeroOrMore);
+        EXPECT_EQ(childDtd.getOccurrence(), OccurrenceChildDtd::ZeroOrMore);
     }
 
     TEST_F(ChildDtdTest, shouldHaveZeroOrOneOccurrence) {
-        ChildDtd childDtd("childTest", Occurrence::ZeroOrOne);
-        EXPECT_EQ(childDtd.getOccurrence(), Occurrence::ZeroOrOne);
+        ChildDtd childDtd("childTest", OccurrenceChildDtd::ZeroOrOne);
+        EXPECT_EQ(childDtd.getOccurrence(), OccurrenceChildDtd::ZeroOrOne);
     }
 }
 
