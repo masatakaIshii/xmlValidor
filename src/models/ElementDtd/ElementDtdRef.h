@@ -17,6 +17,7 @@ namespace models {
         std::map<std::string, ChildDtd *> children;
     public:
         explicit ElementDtdRef(std::string name);
+
         ~ElementDtdRef() override;
 
         std::string getName() override;

@@ -1,0 +1,8 @@
+//
+// Created by masat on 12/11/2020.
+//
+
+#ifndef XMLVALIDOR_MOCKELEMENTDTD_H
+#define XMLVALIDOR_MOCKELEMENTDTD_H
+
+#endif //XMLVALIDOR_MOCKELEMENTDTD_H

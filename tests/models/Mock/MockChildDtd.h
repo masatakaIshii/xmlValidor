@@ -14,6 +14,8 @@ class MockChildDtd : public ChildDtd {
 public:
     MOCK_METHOD(std::string, getName, (), (override));
     MOCK_METHOD(OccurrenceChildDtd, getOccurrence, (), (override));
+
+    ~MockChildDtd() override = default;
 };
 
 #endif //XMLVALIDOR_MOCKCHILDDTD_H

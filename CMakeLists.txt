@@ -10,7 +10,7 @@ set(SRCS
         src/models/ElementXml.cpp
         src/models/ChildDtd/ChildDtdRef.cpp
         src/models/ElementDtd/ElementDtdRef.cpp
-        src/models/DTD.cpp
+        src/models/DTD/DTD.cpp
         src/infrastructures/factories/ElementDtdFactory.cpp
         src/infrastructures/factories/ChildDtdFactory.cpp
         src/use_cases/example_gtest/Turtle.cpp
@@ -23,7 +23,7 @@ set(HEADERS
         src/utils/FileReader.h
         src/models/ElementXml.h
         src/models/ChildDtd/ChildDtdRef.h
-        src/models/DTD.h
+        src/models/DTD/DTD.h
         src/infrastructures/factories/ElementDtdFactory.h
         src/infrastructures/factories/ChildDtdFactory.h
         src/use_cases/example_gtest/Turtle.h
@@ -32,6 +32,7 @@ set(HEADERS
         src/models/ChildDtd/ChildDtd.h
         src/models/ElementDtd/ElementDtdRef.h
         src/models/ElementDtd/ElementDtd.h
+        src/models/ElementDtd/ChildDtdNotFoundException.h
         )
 
 set(TESTSRCS
@@ -42,11 +43,13 @@ set(TESTSRCS
         tests/integration/infrastructures/ElementDtdFactoryTest.cpp
         tests/models/ChildDtdRefTest.cpp
         tests/models/ElementDtdRefTest.cpp
+        tests/models/DTDTest.cpp
         )
 
 set(TESTHEADERS
         tests/use_cases/example_gtest/Mock/MockTurtle.h
         tests/models/Mock/MockChildDtd.h
+        tests/models/Mock/MockElementDtd.h
         )
 
 add_executable(xmlValidor src/cli/main.cpp ${SRCS} ${HEADERS})
