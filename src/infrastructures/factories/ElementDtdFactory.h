@@ -9,9 +9,11 @@
 #include "../../models/ElementDtd.h"
 
 class ElementDtdFactory {
+private:
+    ChildDtdFactory *childDtdFactory{};
 public:
     ElementDtdFactory();
-    ElementDtd createElement(std::string name, ChildDtdFactory &childDtdFactory);
+    ElementDtd createElement(std::string name);
 };
 
 #endif //XMLVALIDOR_ELEMENTDTDFACTORY_H

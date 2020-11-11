@@ -7,14 +7,26 @@
 
 #include <iostream>
 
-class ChildDtd {
-private:
-    std::string name;
-    std::string occurrence;
-public:
-    ChildDtd(std::string name, std::string occurrence);
-    std::string getName();
-    std::string getOccurrence();
-};
+namespace models {
+    enum class Occurrence {
+        One,
+        MinOne,
+        ZeroOrMore,
+        ZeroOrOne
+    };
+
+    class ChildDtd {
+    private:
+        std::string name;
+        Occurrence occurrence;
+    public:
+        explicit ChildDtd(std::string name, Occurrence occurrence = Occurrence::One);
+
+        std::string getName();
+
+        Occurrence getOccurrence();
+    };
+}
+
 
 #endif //XMLVALIDOR_CHILDDTD_H

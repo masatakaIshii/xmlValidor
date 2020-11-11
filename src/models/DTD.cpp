@@ -25,7 +25,7 @@ ElementDtd DTD::getElementByName(const std::string& name) {
 }
 
 void DTD::addElement(std::string elementName) {
-    ElementDtd newElement = this->elementDtdFactory.createElement(std::move(elementName), this->childDtdFactory);
+    ElementDtd newElement = this->elementDtdFactory.createElement(std::move(elementName));
     this->addElement(newElement);
 }
 

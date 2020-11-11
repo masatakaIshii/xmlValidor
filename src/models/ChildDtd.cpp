@@ -6,17 +6,18 @@
 
 #include <utility>
 
+using namespace models;
 
-ChildDtd::ChildDtd(std::string name, std::string occurrence) {
-    this->name = std::move(name);
-    this->occurrence = std::move(occurrence);
+ChildDtd::ChildDtd(std::string name, Occurrence occurrence) : name(std::move(name)), occurrence(occurrence) {
+
 }
-
 
 std::string ChildDtd::getName() {
     return this->name;
 }
 
-std::string ChildDtd::getOccurrence() {
+Occurrence ChildDtd::getOccurrence() {
     return this->occurrence;
 }
+
+

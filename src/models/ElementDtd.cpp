@@ -4,12 +4,20 @@
 
 #include "ElementDtd.h"
 
-ElementDtd::ElementDtd(std::string name, ChildDtdFactory &childDtdFactory) {
-    this->name = std::move(name);
-    this->childDtdFactory = childDtdFactory;
+using namespace models;
+
+ElementDtd::ElementDtd(std::string name): name(std::move(name)) {
 }
 
 std::string ElementDtd::getName() {
     return this->name;
+}
+
+void ElementDtd::addChildDtd(ChildDtd *childDtd) {
+
+}
+
+ChildDtd *ElementDtd::getChildByName(std::string) {
+    return nullptr;
 }
 

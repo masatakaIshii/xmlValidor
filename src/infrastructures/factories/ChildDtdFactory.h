@@ -7,11 +7,12 @@
 
 #include <iostream>
 #include "../../models/ChildDtd.h"
+using namespace models;
 
 class ChildDtdFactory {
 public:
     ChildDtdFactory();
-    ChildDtd createChild(std::string name, std::string occurrence);
+    ChildDtd createChild(std::string name, Occurrence occurrence);
 };
 
 #endif //XMLVALIDOR_CHILDELEMENTFACTORY_H

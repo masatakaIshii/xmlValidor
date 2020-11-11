@@ -5,7 +5,7 @@
 #ifndef XMLVALIDOR_MOCKTURTLE_H
 #define XMLVALIDOR_MOCKTURTLE_H
 #include <gmock/gmock.h>
-#include "../../../src/use_cases/example_gtest/Turtle.h"
+#include "../../../../src/use_cases/example_gtest/Turtle.h"
 
 class MockTurtle : public Turtle {
 public:

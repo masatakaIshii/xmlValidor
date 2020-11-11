@@ -4,10 +4,12 @@
 
 #include "ElementDtdFactory.h"
 
-ElementDtdFactory::ElementDtdFactory() {
+#include <utility>
 
-}
+using namespace models;
 
-ElementDtd ElementDtdFactory::createElement(std::string name, ChildDtdFactory &childDtdFactory) {
-    return ElementDtd(name, childDtdFactory);
+ElementDtdFactory::ElementDtdFactory() = default;
+
+ElementDtd ElementDtdFactory::createElement(std::string name) {
+    return ElementDtd(std::move(name));
 }
