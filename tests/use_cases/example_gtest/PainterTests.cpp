@@ -18,7 +18,7 @@ using ::testing::AnyNumber;
 class PainterTests : public ::testing::Test {
 protected:
     MockTurtle mockTurtle;
-    Painter *painter;
+    Painter *painter{};
 
     void SetUp() override {
         painter = new Painter(&mockTurtle);

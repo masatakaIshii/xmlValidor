@@ -33,6 +33,7 @@ set(HEADERS
         src/models/ElementDtd/ElementDtdRef.h
         src/models/ElementDtd/ElementDtd.h
         src/models/ElementDtd/ChildDtdNotFoundException.h
+        src/models/DTD/ElementDtdNotFoundException.h
         )
 
 set(TESTSRCS

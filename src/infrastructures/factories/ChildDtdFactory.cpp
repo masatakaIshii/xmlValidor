@@ -10,6 +10,6 @@ ChildDtdFactory::ChildDtdFactory() {
 
 }
 
-ChildDtd ChildDtdFactory::createChild(std::string name, Occurrence occurrence) {
-    return ChildDtd(std::move(name), std::move(occurrence));
+ChildDtdRef ChildDtdFactory::createChild(std::string name, OccurrenceChildDtd occurrence) {
+    return ChildDtdRef(std::move(name), std::move(occurrence));
 }

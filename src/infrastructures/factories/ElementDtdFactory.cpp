@@ -10,6 +10,6 @@ using namespace models;
 
 ElementDtdFactory::ElementDtdFactory() = default;
 
-ElementDtd ElementDtdFactory::createElement(std::string name) {
-    return ElementDtd(std::move(name));
+ElementDtd *ElementDtdFactory::createElement(std::string name) {
+    return new ElementDtdRef(std::move(name));
 }

@@ -9,13 +9,14 @@
 #include <string>
 #include <utility>
 
-class ChildNotFoundException: public std::exception {
+class ChildNotFoundException : public std::exception {
 public:
-    explicit ChildNotFoundException(std::string sentence = "") : sentence(std::move(sentence)){};
+    explicit ChildNotFoundException(std::string sentence = "") : sentence(std::move(sentence)) {};
 
-    const char* what() const noexcept override {
+    const char *what() const noexcept override {
         return sentence.c_str();
     }
+
 private:
     std::string sentence;
 };

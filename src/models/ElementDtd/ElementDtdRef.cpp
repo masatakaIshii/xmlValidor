@@ -23,17 +23,16 @@ void ElementDtdRef::addChildDtd(ChildDtd *childDtd) {
 }
 
 ChildDtd *ElementDtdRef::getChildByName(std::string childName) {
-    if (this->children.find(childName) == this->children.end()) {
+    auto it = this->children.find(childName);
+    if (it == this->children.end()) {
         throw ChildNotFoundException("childDtd with name '" + childName + "' not found");
     }
-    return this->children.find(childName)->second;
+    return it->second;
 }
 
 ElementDtdRef::~ElementDtdRef() {
-    std::map<std::string, ChildDtd *>::iterator it;
-
-    for (it = this->children.begin(); it != this->children.end(); it++) {
-        delete it->second;
+    for (auto &it : this->children) {
+        delete it.second;
     }
     this->children.clear();
 }

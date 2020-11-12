@@ -7,24 +7,28 @@
 
 #include <iostream>
 #include <map>
-#include "ElementDtd/ElementDtdRef.h"
-#include "../infrastructures/factories/ElementDtdFactory.h"
-#include "../infrastructures/factories/ChildDtdFactory.h"
+#include "../ElementDtd/ElementDtdRef.h"
+#include "../../infrastructures/factories/ElementDtdFactory.h"
+#include "../../infrastructures/factories/ChildDtdFactory.h"
 
-class DTD {
-private:
-    std::string filePath;
-    std::map<std::string, ElementDtd *> elements;
-public:
-    explicit DTD(std::string filePath);
+namespace models {
+    class DTD {
+    private:
+        std::string filePath;
+        std::map<std::string, ElementDtd *> elements;
+    public:
+        explicit DTD(std::string filePath);
 
-    ~DTD();
+        ~DTD();
 
-    std::string getFilePath();
+        std::string getFilePath();
 
-    ElementDtd *getElementByName(const std::string &name);
+        std::map<std::string, ElementDtd *> getElementsMap();
 
-    void addElement(ElementDtd *element);
-};
+        ElementDtd *getElementByName(const std::string &name);
+
+        void addElement(ElementDtd *element);
+    };
+}
 
 #endif //XMLVALIDOR_DTD_H
