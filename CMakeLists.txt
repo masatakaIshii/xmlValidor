@@ -4,52 +4,58 @@ project(xmlValidor)
 set(CMAKE_CXX_STANDARD 14)
 
 set(SRCS
-        src/use_cases/simpleFunction.cpp
-        src/use_cases/simpleFunction2.cpp
+        src/use_cases/example_gtest/simpleFunction.cpp
+        src/use_cases/example_gtest/simpleFunction2.cpp
         src/utils/FileReader.cpp
         src/models/ElementXml.cpp
-        src/models/ChildDtd.cpp
-        src/models/ElementDtd.cpp
-        src/models/DTD.cpp
+        src/models/ChildDtd/ChildDtdRef.cpp
+        src/models/ElementDtd/ElementDtdRef.cpp
+        src/models/DTD/DTD.cpp
         src/infrastructures/factories/ElementDtdFactory.cpp
         src/infrastructures/factories/ChildDtdFactory.cpp
-        src/use_cases/Turtle.cpp
-        src/use_cases/Painter.cpp
+        src/use_cases/example_gtest/Turtle.cpp
+        src/use_cases/example_gtest/Painter.cpp
         )
 
 set(HEADERS
-        src/use_cases/simpleFunction.h
-        src/use_cases/simpleFunction2.h
+        src/use_cases/example_gtest/simpleFunction.h
+        src/use_cases/example_gtest/simpleFunction2.h
         src/utils/FileReader.h
         src/models/ElementXml.h
-        )
-        
-set(TESTSRCS
-        test/use_case/simpleFunctionTest.cpp
-        test/use_case/simpleFunction2Test.cpp
-        test/models/ElementXmlTest.cpp
-        src/models/ChildDtd.h
-        src/models/ElementDtd.h
-        src/models/DTD.h
+        src/models/ChildDtd/ChildDtdRef.h
+        src/models/DTD/DTD.h
         src/infrastructures/factories/ElementDtdFactory.h
         src/infrastructures/factories/ChildDtdFactory.h
-        src/use_cases/Turtle.h
-        src/use_cases/Painter.h
+        src/use_cases/example_gtest/Turtle.h
+        src/use_cases/example_gtest/Painter.h
+        src/models/ChildDtd/OccurrenceChildDtd.h
+        src/models/ChildDtd/ChildDtd.h
+        src/models/ElementDtd/ElementDtdRef.h
+        src/models/ElementDtd/ElementDtd.h
+        src/models/ElementDtd/ChildDtdNotFoundException.h
+        src/models/DTD/ElementDtdNotFoundException.h
         )
-        
+
 set(TESTSRCS
-        tests/use_cases/simpleFunctionTest.cpp
-        tests/use_cases/simpleFunction2Test.cpp
-        tests/use_cases/PainterTests.cpp
+        tests/use_cases/example_gtest/simpleFunctionTest.cpp
+        tests/use_cases/example_gtest/simpleFunction2Test.cpp
+        tests/use_cases/example_gtest/PainterTests.cpp
         tests/models/ElementXmlTest.cpp
+        tests/integration/infrastructures/ElementDtdFactoryTest.cpp
+        tests/integration/infrastructures/ChildDtdFactoryTest.cpp
+        tests/models/ChildDtdRefTest.cpp
+        tests/models/ElementDtdRefTest.cpp
+        tests/models/DTDTest.cpp
         )
 
 set(TESTHEADERS
-        tests/use_cases/Mock/MockTurtle.h
+        tests/use_cases/example_gtest/Mock/MockTurtle.h
+        tests/models/Mock/MockChildDtd.h
+        tests/models/Mock/MockElementDtd.h
         )
 
 add_executable(xmlValidor src/cli/main.cpp ${SRCS} ${HEADERS})
-add_executable(xmlValidatorTest tests/main.cpp ${SRCS} ${HEADERS} ${TESTSRCS})
+add_executable(xmlValidatorTest tests/main.cpp ${SRCS} ${HEADERS} ${TESTHEADERS} ${TESTSRCS})
 
 find_package(PkgConfig REQUIRED)
 

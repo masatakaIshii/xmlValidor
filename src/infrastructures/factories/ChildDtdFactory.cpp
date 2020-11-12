@@ -4,10 +4,13 @@
 
 #include "ChildDtdFactory.h"
 
-ChildDtdFactory::ChildDtdFactory() {
+#include <utility>
 
-}
+using namespace models;
 
-ChildDtd ChildDtdFactory::createChild(std::string name, std::string occurrence) {
-    return ChildDtd(std::move(name), std::move(occurrence));
+ChildDtdFactory::ChildDtdFactory() = default;
+
+
+ChildDtd *ChildDtdFactory::createChild(std::string name, OccurrenceChildDtd occurrence) {
+    return new ChildDtdRef(std::move(name), occurrence);
 }

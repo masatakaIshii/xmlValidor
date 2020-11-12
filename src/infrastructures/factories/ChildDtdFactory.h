@@ -6,12 +6,13 @@
 #define XMLVALIDOR_CHILDELEMENTFACTORY_H
 
 #include <iostream>
-#include "../../models/ChildDtd.h"
+#include "../../models/ChildDtd/ChildDtdRef.h"
+using namespace models;
 
 class ChildDtdFactory {
 public:
     ChildDtdFactory();
-    ChildDtd createChild(std::string name, std::string occurrence);
+    ChildDtd* createChild(std::string name, OccurrenceChildDtd occurrence = OccurrenceChildDtd::One);
 };
 
 #endif //XMLVALIDOR_CHILDELEMENTFACTORY_H

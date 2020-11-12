@@ -6,7 +6,7 @@
 #define XMLVALIDOR_TURTLE_H
 class Turtle {
 public:
-    virtual ~Turtle() {}
+    virtual ~Turtle() {};
     virtual void PenUp() = 0;
     virtual void PenDown() = 0;
     virtual void Forward(int distance) = 0;
