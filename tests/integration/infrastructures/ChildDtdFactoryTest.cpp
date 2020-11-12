@@ -3,15 +3,17 @@
 //
 
 #include <gtest/gtest.h>
-#include "../../../src/infrastructures/factories/ChildDtdFactory.h"
+#include "../../../src/infrastructures/factories/ChildDtdFactory/ChildDtdFactoryRef.h"
+
+using namespace factories;
 
 namespace {
     class ChildDtdFactoryTests : public ::testing::Test {
     protected:
-        ChildDtdFactory *childDtdFactory;
+        ChildDtdFactory *childDtdFactory{};
 
         void SetUp() override {
-            childDtdFactory = new ChildDtdFactory();
+            childDtdFactory = new ChildDtdFactoryRef();
         }
 
         void TearDown() override {

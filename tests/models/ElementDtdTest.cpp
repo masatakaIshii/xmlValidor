@@ -13,14 +13,14 @@ using ::testing::Return;
 namespace {
     class ElementDtdTest : public ::testing::Test {
     protected:
-        ElementDtdRef *elementDtdRef{};
+        ElementDtd *elementDtd{};
 
         void SetUp() override {
-            elementDtdRef = new ElementDtdRef("elementTest");
+            elementDtd = new ElementDtdRef("elementTest");
         }
 
         void TearDown() override {
-            delete elementDtdRef;
+            delete elementDtd;
         }
     };
 

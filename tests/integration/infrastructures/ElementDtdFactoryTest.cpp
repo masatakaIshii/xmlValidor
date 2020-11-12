@@ -2,18 +2,19 @@
 // Created by masat on 11/11/2020.
 //
 
-
-
 #include <gtest/gtest.h>
-#include "../../../src/infrastructures/factories/ElementDtdFactory.h"
+#include "../../../src/infrastructures/factories/ElementDtdFactory/ElementDtdFactoryRef.h"
+#include "../../../src/models/ElementDtd/ElementDtdRef.h"
+
+using namespace factories;
 
 namespace {
     class ElementDtdFactoryTests : public ::testing::Test {
     protected:
-        ElementDtdFactory *elementDtdFactory;
+        ElementDtdFactory *elementDtdFactory{};
 
         void SetUp() override {
-            elementDtdFactory = new ElementDtdFactory();
+            elementDtdFactory = new ElementDtdFactoryRef();
         }
 
         void TearDown() override {

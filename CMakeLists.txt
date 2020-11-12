@@ -10,9 +10,9 @@ set(SRCS
         src/models/ElementXml.cpp
         src/models/ChildDtd/ChildDtdRef.cpp
         src/models/ElementDtd/ElementDtdRef.cpp
-        src/models/DTD/DTD.cpp
-        src/infrastructures/factories/ElementDtdFactory.cpp
-        src/infrastructures/factories/ChildDtdFactory.cpp
+        src/models/DTD/DTDRef.cpp
+        src/infrastructures/factories/ElementDtdFactory/ElementDtdFactoryRef.cpp
+        src/infrastructures/factories/ChildDtdFactory/ChildDtdFactoryRef.cpp
         src/use_cases/example_gtest/Turtle.cpp
         src/use_cases/example_gtest/Painter.cpp
         )
@@ -24,8 +24,11 @@ set(HEADERS
         src/models/ElementXml.h
         src/models/ChildDtd/ChildDtdRef.h
         src/models/DTD/DTD.h
-        src/infrastructures/factories/ElementDtdFactory.h
-        src/infrastructures/factories/ChildDtdFactory.h
+        src/models/DTD/DTDRef.h
+        src/infrastructures/factories/ElementDtdFactory/ElementDtdFactory.h
+        src/infrastructures/factories/ElementDtdFactory/ElementDtdFactoryRef.h
+        src/infrastructures/factories/ChildDtdFactory/ChildDtdFactory.h
+        src/infrastructures/factories/ChildDtdFactory/ChildDtdFactoryRef.h
         src/use_cases/example_gtest/Turtle.h
         src/use_cases/example_gtest/Painter.h
         src/models/ChildDtd/OccurrenceChildDtd.h
@@ -34,6 +37,7 @@ set(HEADERS
         src/models/ElementDtd/ElementDtd.h
         src/models/ElementDtd/ChildDtdNotFoundException.h
         src/models/DTD/ElementDtdNotFoundException.h
+        src/use_cases/parsingDTD/ParsingChildDtd.h
         )
 
 set(TESTSRCS
@@ -43,8 +47,8 @@ set(TESTSRCS
         tests/models/ElementXmlTest.cpp
         tests/integration/infrastructures/ElementDtdFactoryTest.cpp
         tests/integration/infrastructures/ChildDtdFactoryTest.cpp
-        tests/models/ChildDtdRefTest.cpp
-        tests/models/ElementDtdRefTest.cpp
+        tests/models/ChildDtdTest.cpp
+        tests/models/ElementDtdTest.cpp
         tests/models/DTDTest.cpp
         )
 
