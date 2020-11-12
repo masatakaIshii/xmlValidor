@@ -12,7 +12,7 @@ using namespace models;
 class ChildDtdFactory {
 public:
     ChildDtdFactory();
-    ChildDtdRef createChild(std::string name, OccurrenceChildDtd occurrence);
+    ChildDtd* createChild(std::string name, OccurrenceChildDtd occurrence = OccurrenceChildDtd::One);
 };
 
 #endif //XMLVALIDOR_CHILDELEMENTFACTORY_H

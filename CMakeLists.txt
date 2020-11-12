@@ -42,6 +42,7 @@ set(TESTSRCS
         tests/use_cases/example_gtest/PainterTests.cpp
         tests/models/ElementXmlTest.cpp
         tests/integration/infrastructures/ElementDtdFactoryTest.cpp
+        tests/integration/infrastructures/ChildDtdFactoryTest.cpp
         tests/models/ChildDtdRefTest.cpp
         tests/models/ElementDtdRefTest.cpp
         tests/models/DTDTest.cpp
