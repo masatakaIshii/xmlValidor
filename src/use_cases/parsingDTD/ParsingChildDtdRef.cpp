@@ -6,10 +6,14 @@
 
 using namespace use_cases;
 
-ParsingChildDtdRef::ParsingChildDtdRef(ChildDtdFactory *childDtdFactory) {
+ParsingChildDtdRef::ParsingChildDtdRef(ChildDtdFactory *childDtdFactory) : childDtdFactory(childDtdFactory) {
 
 }
 
 ChildDtd *use_cases::ParsingChildDtdRef::parseDtd(std::string) {
     return nullptr;
+}
+
+ParsingChildDtdRef::~ParsingChildDtdRef() {
+    delete childDtdFactory;
 }

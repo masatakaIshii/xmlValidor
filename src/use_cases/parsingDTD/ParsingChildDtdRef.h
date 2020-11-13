@@ -6,7 +6,9 @@
 #define XMLVALIDOR_PARSINGCHILDDTDREF_H
 
 #include "ParsingChildDtd.h"
-#include "../../infrastructures/factories/ChildDtdFactory/ChildDtdFactoryRef.h"
+#include "../../infrastructures/factories/ChildDtdFactory/ChildDtdFactory.h"
+
+using namespace factories;
 
 namespace use_cases {
     class ParsingChildDtdRef : public ParsingChildDtd {
@@ -16,6 +18,8 @@ namespace use_cases {
         explicit ParsingChildDtdRef(ChildDtdFactory *childDtdFactory);
 
         ChildDtd *parseDtd(std::string childContent) override;
+
+        ~ParsingChildDtdRef() override;
     };
 }
 

@@ -13,6 +13,7 @@ set(SRCS
         src/models/DTD/DTDRef.cpp
         src/infrastructures/factories/ElementDtdFactory/ElementDtdFactoryRef.cpp
         src/infrastructures/factories/ChildDtdFactory/ChildDtdFactoryRef.cpp
+        src/use_cases/parsingDTD/ParsingChildDtdRef.cpp
         src/use_cases/example_gtest/Turtle.cpp
         src/use_cases/example_gtest/Painter.cpp
         )
@@ -32,12 +33,14 @@ set(HEADERS
         src/use_cases/example_gtest/Turtle.h
         src/use_cases/example_gtest/Painter.h
         src/models/ChildDtd/OccurrenceChildDtd.h
+        src/models/ChildDtd/ChildDtdOnlyOneNameException.h
         src/models/ChildDtd/ChildDtd.h
         src/models/ElementDtd/ElementDtdRef.h
         src/models/ElementDtd/ElementDtd.h
         src/models/ElementDtd/ChildDtdNotFoundException.h
         src/models/DTD/ElementDtdNotFoundException.h
         src/use_cases/parsingDTD/ParsingChildDtd.h
+        src/use_cases/parsingDTD/ParsingChildDtdRef.h
         )
 
 set(TESTSRCS
@@ -50,12 +53,14 @@ set(TESTSRCS
         tests/models/ChildDtdTest.cpp
         tests/models/ElementDtdTest.cpp
         tests/models/DTDTest.cpp
+        tests/use_cases/parsingDTD/ParsingChildDtd.cpp
         )
 
 set(TESTHEADERS
         tests/use_cases/example_gtest/Mock/MockTurtle.h
         tests/models/Mock/MockChildDtd.h
         tests/models/Mock/MockElementDtd.h
+        tests/infrastructures/Mock/MockChildDtdFactory.h
         )
 
 add_executable(xmlValidor src/cli/main.cpp ${SRCS} ${HEADERS})
