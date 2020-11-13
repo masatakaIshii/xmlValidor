@@ -4,6 +4,8 @@ project(xmlValidor)
 set(CMAKE_CXX_STANDARD 14)
 
 set(SRCS
+        src/use_cases/example_gtest/Turtle.cpp
+        src/use_cases/example_gtest/Painter.cpp
         src/use_cases/example_gtest/simpleFunction.cpp
         src/use_cases/example_gtest/simpleFunction2.cpp
         src/utils/FileReader.cpp
@@ -13,12 +15,13 @@ set(SRCS
         src/models/DTD/DTDRef.cpp
         src/infrastructures/factories/ElementDtdFactory/ElementDtdFactoryRef.cpp
         src/infrastructures/factories/ChildDtdFactory/ChildDtdFactoryRef.cpp
-        src/use_cases/parsingDTD/ParsingChildDtdRef.cpp
-        src/use_cases/example_gtest/Turtle.cpp
-        src/use_cases/example_gtest/Painter.cpp
+        src/use_cases/parseDTD/ParseChildDtdRef.cpp
+        src/utils/StringUtils.cpp
         )
 
 set(HEADERS
+        src/use_cases/example_gtest/Turtle.h
+        src/use_cases/example_gtest/Painter.h
         src/use_cases/example_gtest/simpleFunction.h
         src/use_cases/example_gtest/simpleFunction2.h
         src/utils/FileReader.h
@@ -30,8 +33,6 @@ set(HEADERS
         src/infrastructures/factories/ElementDtdFactory/ElementDtdFactoryRef.h
         src/infrastructures/factories/ChildDtdFactory/ChildDtdFactory.h
         src/infrastructures/factories/ChildDtdFactory/ChildDtdFactoryRef.h
-        src/use_cases/example_gtest/Turtle.h
-        src/use_cases/example_gtest/Painter.h
         src/models/ChildDtd/OccurrenceChildDtd.h
         src/models/ChildDtd/ChildDtdOnlyOneNameException.h
         src/models/ChildDtd/ChildDtd.h
@@ -39,8 +40,9 @@ set(HEADERS
         src/models/ElementDtd/ElementDtd.h
         src/models/ElementDtd/ChildDtdNotFoundException.h
         src/models/DTD/ElementDtdNotFoundException.h
-        src/use_cases/parsingDTD/ParsingChildDtd.h
-        src/use_cases/parsingDTD/ParsingChildDtdRef.h
+        src/use_cases/parseDTD/ParseChildDtd.h
+        src/use_cases/parseDTD/ParseChildDtdRef.h
+        src/utils/StringUtils.h
         )
 
 set(TESTSRCS
@@ -53,7 +55,8 @@ set(TESTSRCS
         tests/models/ChildDtdTest.cpp
         tests/models/ElementDtdTest.cpp
         tests/models/DTDTest.cpp
-        tests/use_cases/parsingDTD/ParsingChildDtd.cpp
+        tests/use_cases/parseDTD/ParseChildDtdTest.cpp
+        tests/utils/StringUtilsTest.cpp
         )
 
 set(TESTHEADERS

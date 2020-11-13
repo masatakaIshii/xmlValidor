@@ -5,13 +5,13 @@
 #ifndef XMLVALIDOR_PARSINGCHILDDTDREF_H
 #define XMLVALIDOR_PARSINGCHILDDTDREF_H
 
-#include "ParsingChildDtd.h"
+#include "ParseChildDtd.h"
 #include "../../infrastructures/factories/ChildDtdFactory/ChildDtdFactory.h"
 
 using namespace factories;
 
 namespace use_cases {
-    class ParsingChildDtdRef : public ParsingChildDtd {
+    class ParsingChildDtdRef : public ParseChildDtd {
     private:
         ChildDtdFactory *childDtdFactory;
     public:
