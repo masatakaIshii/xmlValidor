@@ -16,7 +16,14 @@ namespace factories {
     public:
         ChildDtdFactoryRef();
 
-        ChildDtd *createChild(std::string name, OccurrenceChildDtd occurrence = OccurrenceChildDtd::One) override;
+        ChildDtd *createChild(std::string name) override;
+
+        ChildDtd *createChild(std::string name, OccurrenceChildDtd occurrence) override;
+
+        ChildDtd *createChild(
+                std::string name,
+                OccurrenceChildDtd occurrence,
+                bool hasOnlyOneName) override;
     };
 }
 

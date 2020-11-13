@@ -11,7 +11,19 @@ using namespace factories;
 
 ChildDtdFactoryRef::ChildDtdFactoryRef() = default;
 
+ChildDtd *ChildDtdFactoryRef::createChild(std::string name) {
+    return new ChildDtdRef(name);
+}
 
 ChildDtd *ChildDtdFactoryRef::createChild(std::string name, OccurrenceChildDtd occurrence) {
-    return new ChildDtdRef(std::move(name), occurrence);
+    return new ChildDtdRef(name, occurrence);
 }
+
+ChildDtd *ChildDtdFactoryRef::createChild(
+        std::string name,
+        OccurrenceChildDtd occurrence,
+        bool hasOnlyOneName) {
+    return new ChildDtdRef(name, occurrence, hasOnlyOneName);
+}
+
+

@@ -14,7 +14,16 @@ namespace factories {
     class ChildDtdFactory {
     public:
         virtual ~ChildDtdFactory() = default;
-        virtual ChildDtd *createChild(std::string name, OccurrenceChildDtd occurrence = OccurrenceChildDtd::One) = 0;
+
+        virtual ChildDtd *createChild(std::string name) = 0;
+
+        virtual ChildDtd *createChild(std::string, OccurrenceChildDtd occurrence) = 0;
+
+        virtual ChildDtd *createChild(
+                std::string name,
+                OccurrenceChildDtd occurrence,
+                bool hasOnlyOneName
+        ) = 0;
     };
 }
 

@@ -12,7 +12,9 @@ using namespace factories;
 
 class MockChildDtdFactory : public ChildDtdFactory {
 public:
+    MOCK_METHOD(ChildDtd*, createChild, (std::string), (override));
     MOCK_METHOD(ChildDtd*, createChild, (std::string, OccurrenceChildDtd), (override));
+    MOCK_METHOD(ChildDtd*, createChild, (std::string, OccurrenceChildDtd, bool), (override));
 
     ~MockChildDtdFactory() override {
         std::cout << "delete MockChild" << std::endl;
