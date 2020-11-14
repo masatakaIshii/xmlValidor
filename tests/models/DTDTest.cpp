@@ -3,7 +3,7 @@
 //
 
 #include <gtest/gtest.h>
-#include "../../src/models/DTD/DTD.h"
+#include "../../src/models/DTD/DTDRef.h"
 #include "Mock/MockElementDtd.h"
 #include "../../src/models/DTD/ElementDtdNotFoundException.h"
 
@@ -16,7 +16,7 @@ namespace {
         DTD *dtd{};
 
         void SetUp() override {
-            dtd = new DTD("filepath.txt");
+            dtd = new DTDRef("filepath.txt");
         }
 
         void TearDown() override {

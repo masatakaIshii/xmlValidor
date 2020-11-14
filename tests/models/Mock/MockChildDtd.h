@@ -13,7 +13,10 @@ using namespace models;
 class MockChildDtd : public ChildDtd {
 public:
     MOCK_METHOD(std::string, getName, (), (override));
+    MOCK_METHOD(std::vector<std::string>, getNames, (), (override));
+    MOCK_METHOD(void, addName, (std::string name), (override));
     MOCK_METHOD(OccurrenceChildDtd, getOccurrence, (), (override));
+    MOCK_METHOD(void, setOccurrence, (OccurrenceChildDtd), (override));
 
     ~MockChildDtd() override = default;
 };

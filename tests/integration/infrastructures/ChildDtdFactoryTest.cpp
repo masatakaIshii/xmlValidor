@@ -3,15 +3,17 @@
 //
 
 #include <gtest/gtest.h>
-#include "../../../src/infrastructures/factories/ChildDtdFactory.h"
+#include "../../../src/infrastructures/factories/ChildDtdFactory/ChildDtdFactoryRef.h"
+
+using namespace factories;
 
 namespace {
     class ChildDtdFactoryTests : public ::testing::Test {
     protected:
-        ChildDtdFactory *childDtdFactory;
+        ChildDtdFactory *childDtdFactory{};
 
         void SetUp() override {
-            childDtdFactory = new ChildDtdFactory();
+            childDtdFactory = new ChildDtdFactoryRef();
         }
 
         void TearDown() override {
@@ -40,6 +42,17 @@ namespace {
 
         ASSERT_NE(result, nullptr);
         EXPECT_EQ(result->getOccurrence(), OccurrenceChildDtd::ZeroOrMore);
+        delete result;
+    }
+
+    TEST_F(ChildDtdFactoryTests, createElement_shouldCreateChildDtdWithOccurrenceDefinedInParamAndCanSaveListNames) {
+        ChildDtd *result = childDtdFactory->createChild(
+                "child name",
+                OccurrenceChildDtd::ZeroOrMore,
+                false);
+
+        ASSERT_NE(result, nullptr);
+        EXPECT_STREQ(typeid(result->getNames()).name(), typeid(std::vector<std::string>).name());
         delete result;
     }
 }

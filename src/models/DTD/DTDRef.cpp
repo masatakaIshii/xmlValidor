@@ -2,28 +2,28 @@
 // Created by masat on 01/11/2020.
 //
 
-#include "DTD.h"
+#include "DTDRef.h"
 #include "ElementDtdNotFoundException.h"
 
 using namespace models;
 
-DTD::DTD(std::string filePath) : filePath(std::move(filePath)) {
+DTDRef::DTDRef(std::string filePath) : filePath(std::move(filePath)) {
 }
 
-std::string DTD::getFilePath() {
+std::string DTDRef::getFilePath() {
     return this->filePath;
 }
 
-std::map<std::string, ElementDtd *> DTD::getElementsMap() {
+std::map<std::string, ElementDtd *> DTDRef::getElementsMap() {
     return this->elements;
 }
 
-void DTD::addElement(ElementDtd *element) {
+void DTDRef::addElement(ElementDtd *element) {
     if (element == nullptr) throw std::invalid_argument("element is null");
     this->elements.insert({element->getName(), element});
 }
 
-ElementDtd *DTD::getElementByName(const std::string &name) {
+ElementDtd *DTDRef::getElementByName(const std::string &name) {
     auto itr = this->elements.find(name);
     if (itr == this->elements.end()) {
         throw ElementDtdNotFoundException("ElementDtd with name '" + name + "' not found");
@@ -31,7 +31,7 @@ ElementDtd *DTD::getElementByName(const std::string &name) {
     return itr->second;
 }
 
-DTD::~DTD() {
+DTDRef::~DTDRef() {
     for (auto &it : this->elements) {
         delete it.second;
     }

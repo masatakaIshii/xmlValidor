@@ -6,6 +6,7 @@
 #define XMLVALIDOR_CHILDDTD_H
 
 #include <iostream>
+#include <vector>
 #include "OccurrenceChildDtd.h"
 
 namespace models {
@@ -15,7 +16,13 @@ namespace models {
 
         virtual std::string getName() = 0;
 
+        virtual std::vector<std::string> getNames() = 0;
+
+        virtual void addName(std::string) = 0;
+
         virtual OccurrenceChildDtd getOccurrence() = 0;
+
+        virtual void setOccurrence(OccurrenceChildDtd occurrenceChildDtd) = 0;
     };
 }
 
