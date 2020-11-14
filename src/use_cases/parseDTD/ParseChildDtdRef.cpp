@@ -14,14 +14,20 @@ ParseChildDtdRef::ParseChildDtdRef(ChildDtdFactory *childDtdFactory) : childDtdF
 
 ChildDtd *use_cases::ParseChildDtdRef::parseChildDtd(const std::string &name) {
     ChildDtd *childDtd;
+    std::vector<std::string> names;
     bool hasOnlyOneName = std::string::npos == name.find('|');
-    std::vector<std::string> names = StringUtils::split(
-            this->removeBeginAndEndParenthesis(name),
-            "|");
+    OccurrenceChildDtd occurrence = this->getOccurrenceByName(name);
+    std::string currentName(name);
 
+    if (occurrence != OccurrenceChildDtd::One) {
+        currentName = currentName.substr(0, currentName.size() - 1);
+    }
+    names = StringUtils::split(
+            this->removeBeginAndEndParenthesis(currentName),
+            "|");
     childDtd = childDtdFactory->createChild(
             names[0],
-            this->getOccurrenceByName(name),
+            occurrence,
             hasOnlyOneName);
 
     for (int i = 1; i < names.size(); i++) {

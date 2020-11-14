@@ -50,13 +50,14 @@ set(TESTSRCS
         tests/use_cases/example_gtest/simpleFunction2Test.cpp
         tests/use_cases/example_gtest/PainterTests.cpp
         tests/models/ElementXmlTest.cpp
-        tests/integration/infrastructures/ElementDtdFactoryTest.cpp
-        tests/integration/infrastructures/ChildDtdFactoryTest.cpp
+        tests/integration/infrastructures/ElementDtdFactoryIntegration.cpp
+        tests/integration/infrastructures/ChildDtdFactoryIntegration.cpp
         tests/models/ChildDtdTest.cpp
         tests/models/ElementDtdTest.cpp
         tests/models/DTDTest.cpp
         tests/use_cases/parseDTD/ParseChildDtdTest.cpp
         tests/utils/StringUtilsTest.cpp
+        tests/integration/parseDTD/ParseChildDtdIntegration.cpp
         )
 
 set(TESTHEADERS

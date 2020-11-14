@@ -7,8 +7,8 @@
 
 using namespace factories;
 
-namespace {
-    class ChildDtdFactoryTests : public ::testing::Test {
+namespace integration {
+    class ChildDtdFactoryIntegration : public ::testing::Test {
     protected:
         ChildDtdFactory *childDtdFactory{};
 
@@ -21,7 +21,7 @@ namespace {
         }
     };
 
-    TEST_F(ChildDtdFactoryTests, createElement_shouldCreateChildDtdRefAndReturnPointer) {
+    TEST_F(ChildDtdFactoryIntegration, createElement_shouldCreateChildDtdRefAndReturnPointer) {
         ChildDtd *result = childDtdFactory->createChild("child name");
 
         ASSERT_NE(result, nullptr);
@@ -29,7 +29,7 @@ namespace {
         delete result;
     }
 
-    TEST_F(ChildDtdFactoryTests, createElement_shouldCreateChildDtdWithOccurrenceOneByDefault) {
+    TEST_F(ChildDtdFactoryIntegration, createElement_shouldCreateChildDtdWithOccurrenceOneByDefault) {
         ChildDtd *result = childDtdFactory->createChild("child name");
 
         ASSERT_NE(result, nullptr);
@@ -37,7 +37,7 @@ namespace {
         delete result;
     }
 
-    TEST_F(ChildDtdFactoryTests, createElement_shouldCreateChildDtdWithOccurrenceDefinedInParam) {
+    TEST_F(ChildDtdFactoryIntegration, createElement_shouldCreateChildDtdWithOccurrenceDefinedInParam) {
         ChildDtd *result = childDtdFactory->createChild("child name", OccurrenceChildDtd::ZeroOrMore);
 
         ASSERT_NE(result, nullptr);
@@ -45,7 +45,7 @@ namespace {
         delete result;
     }
 
-    TEST_F(ChildDtdFactoryTests, createElement_shouldCreateChildDtdWithOccurrenceDefinedInParamAndCanSaveListNames) {
+    TEST_F(ChildDtdFactoryIntegration, createElement_shouldCreateChildDtdWithOccurrenceDefinedInParamAndCanSaveListNames) {
         ChildDtd *result = childDtdFactory->createChild(
                 "child name",
                 OccurrenceChildDtd::ZeroOrMore,
