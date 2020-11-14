@@ -52,27 +52,27 @@ namespace {
 
 
     TEST_F(ParseChildDtdTest, parseDtd_whenNameEndWithPlusOperator_shouldCreateChildWithMinOneOccurrence) {
-        std::string childDtdMinOneName = "testMinOneChild+";
+        std::string childDtdMinOneName = "testMinOneChild";
         EXPECT_CALL(*mockChildDtdFactory,
                     createChild(childDtdMinOneName, OccurrenceChildDtd::MinOne, true))
                 .Times(1);
-        parseChildDtd->parseChildDtd(childDtdMinOneName);
+        parseChildDtd->parseChildDtd(childDtdMinOneName + "+");
     }
 
     TEST_F(ParseChildDtdTest, parseDtd_whenNameEndWithPlusOperator_shouldCreateChildWithZeroOrMoreOccurrence) {
-        std::string childDtdZeroOrMoreName = "testZeroOrMoreChild*";
+        std::string childDtdZeroOrMoreName = "testZeroOrMoreChild";
         EXPECT_CALL(*mockChildDtdFactory,
                     createChild(childDtdZeroOrMoreName, OccurrenceChildDtd::ZeroOrMore, true))
                 .Times(1);
-        parseChildDtd->parseChildDtd(childDtdZeroOrMoreName);
+        parseChildDtd->parseChildDtd(childDtdZeroOrMoreName + "*");
     }
 
     TEST_F(ParseChildDtdTest, parseDtd_whenNameEndWithPlusOperator_shouldCreateChildWithZeroOrOneOccurrence) {
-        std::string childDtdZeroOrOneName = "testZeroOrMoreChild?";
+        std::string childDtdZeroOrOneName = "testZeroOrMoreChild";
         EXPECT_CALL(*mockChildDtdFactory,
                     createChild(childDtdZeroOrOneName, OccurrenceChildDtd::ZeroOrOne, true))
                 .Times(1);
-        parseChildDtd->parseChildDtd(childDtdZeroOrOneName);
+        parseChildDtd->parseChildDtd(childDtdZeroOrOneName + "?");
     }
 
     TEST_F(ParseChildDtdTest, parseDtd_whenStringContainNames_shouldCreateChildWithHasOnlyOneNameToFalse) {
@@ -112,17 +112,16 @@ namespace {
     }
 
     TEST_F(ParseChildDtdTest, parseDtd_whenStringContainNamesWithOneOccurrence_shouldSetOccurrenceAndAddNames) {
-        std::string childDtdZeroOrMoreWithNames = "(#PCDATA|to|from|header|message)*";
         std::vector<std::string> childNames(4);
-        childNames = {"to", "from", "header", "message"};
+        childNames = {"#PCDATA", "to", "from", "header", "message"};
         EXPECT_CALL(
                 *mockChildDtdFactory,
-                createChild("#PCDATA", OccurrenceChildDtd::ZeroOrMore, false))
+                createChild(childNames[0], OccurrenceChildDtd::ZeroOrMore, false))
                 .Times(1)
                 .WillOnce(Return(&mockChildDtd));
         {
             InSequence seq;
-            for (int i = 0; i < childNames.size(); i++) {
+            for (int i = 1; i < childNames.size(); i++) {
                 EXPECT_CALL(
                         mockChildDtd,
                         addName(childNames[i]))
@@ -130,6 +129,6 @@ namespace {
             }
         }
 
-        parseChildDtd->parseChildDtd(childDtdZeroOrMoreWithNames);
+        parseChildDtd->parseChildDtd("(#PCDATA|to|from|header|message)*");
     }
 }

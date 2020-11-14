@@ -8,8 +8,8 @@
 
 using namespace factories;
 
-namespace {
-    class ElementDtdFactoryTests : public ::testing::Test {
+namespace integration {
+    class ElementDtdFactoryIntegration : public ::testing::Test {
     protected:
         ElementDtdFactory *elementDtdFactory{};
 
@@ -22,7 +22,7 @@ namespace {
         }
     };
 
-    TEST_F(ElementDtdFactoryTests, createElement_shouldCreateElementDtdRefAndReturnPointer) {
+    TEST_F(ElementDtdFactoryIntegration, createElement_shouldCreateElementDtdRefAndReturnPointer) {
         ElementDtd *result = elementDtdFactory->createElement("element name");
 
         EXPECT_EQ(typeid(*result).name(), typeid(ElementDtdRef).name());
