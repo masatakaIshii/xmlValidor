@@ -2,8 +2,8 @@
 // Created by masat on 12/11/2020.
 //
 
-#ifndef XMLVALIDOR_PARSECHILDDTDTEST_H
-#define XMLVALIDOR_PARSECHILDDTDTEST_H
+#ifndef XMLVALIDOR_PARSECHILDDTD_H
+#define XMLVALIDOR_PARSECHILDDTD_H
 
 #include <iostream>
 #include "../../models/ChildDtd/ChildDtd.h"
@@ -15,9 +15,9 @@ namespace use_cases {
     public:
         virtual ~ParseChildDtd() = default;
 
-        virtual ChildDtd *parseChildDtd(std::string) = 0;
+        virtual ChildDtd *parseChildDtd(const std::string &childContent) = 0;
     };
 }
 
 
-#endif //XMLVALIDOR_PARSECHILDDTDTEST_H
+#endif //XMLVALIDOR_PARSECHILDDTD_H

@@ -16,9 +16,7 @@ public:
     MOCK_METHOD(ChildDtd*, createChild, (std::string, OccurrenceChildDtd), (override));
     MOCK_METHOD(ChildDtd*, createChild, (std::string, OccurrenceChildDtd, bool), (override));
 
-    ~MockChildDtdFactory() override {
-        std::cout << "delete MockChild" << std::endl;
-    }
+    ~MockChildDtdFactory() override {}
 };
 
 #endif //XMLVALIDOR_MOCKCHILDDTDFACTORY_H

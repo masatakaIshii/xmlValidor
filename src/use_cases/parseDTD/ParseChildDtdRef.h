@@ -2,8 +2,8 @@
 // Created by masat on 12/11/2020.
 //
 
-#ifndef XMLVALIDOR_PARSINGCHILDDTDREF_H
-#define XMLVALIDOR_PARSINGCHILDDTDREF_H
+#ifndef XMLVALIDOR_PARSECHILDDTDREF_H
+#define XMLVALIDOR_PARSECHILDDTDREF_H
 
 #include "ParseChildDtd.h"
 #include "../../infrastructures/factories/ChildDtdFactory/ChildDtdFactory.h"
@@ -11,16 +11,20 @@
 using namespace factories;
 
 namespace use_cases {
-    class ParsingChildDtdRef : public ParseChildDtd {
+    class ParseChildDtdRef : public ParseChildDtd {
     private:
         ChildDtdFactory *childDtdFactory;
+
+        OccurrenceChildDtd getOccurrenceByName(std::string name);
+
+        std::string removeBeginAndEndParenthesis(const std::string &name);
     public:
-        explicit ParsingChildDtdRef(ChildDtdFactory *childDtdFactory);
+        explicit ParseChildDtdRef(ChildDtdFactory *childDtdFactory);
 
-        ChildDtd *parseDtd(std::string childContent) override;
+        ChildDtd *parseChildDtd(const std::string &childContent) override;
 
-        ~ParsingChildDtdRef() override;
+        ~ParseChildDtdRef() override;
     };
 }
 
-#endif //XMLVALIDOR_PARSINGCHILDDTDREF_H
+#endif //XMLVALIDOR_PARSECHILDDTDREF_H
