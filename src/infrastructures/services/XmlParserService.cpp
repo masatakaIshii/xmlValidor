@@ -8,24 +8,53 @@
 std::vector<ElementXml> XmlParserService::xmlParser(std::string &fileContent) {
     std::vector<ElementXml> elements = std::vector<ElementXml>();
     std::string elementName;
-    std::string buffer;
+    std::string elementContent;
 
+    bool flagIn = false;
+    bool flagOut = true;
+    bool flagSpace = false;
 
     int i = 0;
-    int y = 0;
     while (fileContent[i] != '\0' && i < fileContent.size()) {
-//        std::cout << fileContent[i];
-//        i++;
-        if (fileContent[i] == '<') {
-            while (fileContent[y] != ' ') {
-                if (fileContent[y] == '?') break;
-                std::cout << fileContent[y] << std::endl;
-                y++;
-            }
-            i = y;
+
+        switch (fileContent[i]) {
+            case '<':
+                if (flagOut) {
+                    flagIn = true;
+                    flagOut = false;
+                    std::cout << "IN" << std::endl;
+                } else {
+                    throw nullptr;
+                }
+                break;
+            case '>':
+                flagOut = true;
+                flagSpace = true;
+//                std::cout << "\nOUT" << std::endl;
+                break;
+            case '?':
+                if (fileContent[i - 1] == '<' || fileContent[i + 1] == '>') {
+                    elementName.clear();
+                    elementContent.clear();
+                }
+                break;
+            case '\n':
+                break;
+            case ' ':
+                flagSpace = true;
+                break;
+            default:
+                if (flagOut) {
+                    elementContent += fileContent[i];
+                }
+                if (flagIn) {
+                    elementName += fileContent[i];
+                }
+                std::cout << elementName << std::endl;
+                std::cout << elementContent << std::endl;
+                break;
         }
 
-        std::cout << fileContent[i];
         i++;
     }
 
