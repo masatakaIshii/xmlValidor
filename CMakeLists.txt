@@ -15,14 +15,16 @@ set(SRCS
         src/infrastructures/factories/ChildDtdFactory.cpp
         src/use_cases/Turtle.cpp
         src/use_cases/Painter.cpp
-        src/infrastructures/services/XmlParserService.cpp src/infrastructures/services/XmlParserService.h)
+        src/infrastructures/services/XmlParserService.cpp
+        src/infrastructures/factories/ElementXmlFactory.cpp )
 
 set(HEADERS
         src/use_cases/simpleFunction.h
         src/use_cases/simpleFunction2.h
         src/utils/FileReader.h
         src/models/ElementXml.h
-        )
+        src/infrastructures/services/XmlParserService.h
+        src/infrastructures/factories/ElementXmlFactory.h)
         
 set(TESTSRCS
         test/use_case/simpleFunctionTest.cpp
